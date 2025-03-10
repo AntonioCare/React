@@ -1,1 +1,1 @@
-# In questa repo verranno inseriti tutti gli sercizi di react.
+# In questa repo verranno inseriti tutti gli esercizi di react.
