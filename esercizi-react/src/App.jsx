@@ -1,28 +1,17 @@
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+import Hello from "./components/Hello";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
-  };
-  function handleClick() {
-    console.log("Sono stato cliccato");
-  }
   return (
-    <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
-    </>
+    <div>
+      <Hello></Hello>
+    </div>
   );
 }
 
 export default App;
+
+// Puoi usare il componente Hello più di una volta nel componente App? Si.
+// Cosa succede se lo fai? Mi Apparirà a video il messaggio Hello world! e What a Beautiful Day! più volte.
+// Puoi eseguire il rendering del componente Message direttamente all'interno del componente App? Si.
+// Cosa succede se lo fai? Apparirà a schermo la Scritta What a Beautiful Day!.
