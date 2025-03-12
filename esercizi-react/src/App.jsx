@@ -1,26 +1,14 @@
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+import AlertClock from "./components/AlertClock";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
-  };
-  function handleClick() {
-    console.log("Sono stato cliccato");
+  function HandleButtonClick() {
+    const now = new Date();
+    alert(`The Current Time is ${now.toLocaleTimeString()}`);
   }
   return (
     <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
+      <AlertClock onClick={HandleButtonClick}></AlertClock>
     </>
   );
 }
