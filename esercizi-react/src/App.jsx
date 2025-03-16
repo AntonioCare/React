@@ -1,14 +1,13 @@
 import "./App.css";
-import Clock from "./components/Clock";
-import Counter from "./components/Counter";
+import MouseClicker from "./components/MouseClicker ";
 
 function App() {
   return (
     <>
-      <Counter initialValue={0} incrementAmount={1}></Counter>
-      <Clock></Clock>
+      <MouseClicker></MouseClicker>
     </>
   );
 }
+// Come è possibile evitare che l'attributo name del pulsante venga visualizzato sulla console quando si clicca sull'immagine? Assegnando un attributo name all'immagine.
 
 export default App;
