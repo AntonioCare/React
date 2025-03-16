@@ -1,9 +1,11 @@
 import "./App.css";
 import Counter from "./components/Counter";
+import Semaforo from "./components/Semaforo";
 
 function App() {
   return (
     <>
+      <Semaforo></Semaforo>
       <Counter initialValue={0} incrementAmount={3}></Counter>
     </>
   );
