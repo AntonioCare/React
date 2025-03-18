@@ -1,4 +1,5 @@
 import "./App.css";
+import Form from "./components/Form";
 
 import InteractiveWelcome from "./components/InteractiveWelcome";
 import Login from "./components/Login";
@@ -14,6 +15,8 @@ function App() {
       <Login onLogin={handleLogin}></Login>
       {/* Come si impedisce il comportamento predefinito dell'elemento form? 
       Con event.preventDefault() */}
+      <h1>Register Form</h1>
+      <Form></Form>
     </>
   );
 }
