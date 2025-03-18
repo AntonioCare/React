@@ -1,26 +1,19 @@
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+
+import InteractiveWelcome from "./components/InteractiveWelcome";
+import Login from "./components/Login";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
+  const handleLogin = (data) => {
+    console.log("Login data:", data);
   };
-  function handleClick() {
-    console.log("Sono stato cliccato");
-  }
   return (
     <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
+      <InteractiveWelcome></InteractiveWelcome>
+      <h1>LogIn Form</h1>
+      <Login onLogin={handleLogin}></Login>
+      {/* Come si impedisce il comportamento predefinito dell'elemento form? 
+      Con event.preventDefault() */}
     </>
   );
 }
