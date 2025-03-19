@@ -7,10 +7,9 @@ export default function FocusableInput() {
     inputRef.current?.focus(); // ? Operatore di concatenamento facoltativo
     if (!mounted.current) {
       mounted.current = true;
-      console.log("Mounting for the first time");
+      console.log(" Component Mounted for the first time");
     }
-  }),
-    [];
+  }, []);
 
   return (
     <>
