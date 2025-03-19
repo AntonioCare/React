@@ -1,10 +1,10 @@
 import "./App.css";
-import UncontrolledLogin from "./components/UncontrolledLogin";
+import FocusableInput from "./components/FocusableInput";
 
 function App() {
   return (
     <>
-      <UncontrolledLogin></UncontrolledLogin>
+      <FocusableInput></FocusableInput>
     </>
   );
 }
