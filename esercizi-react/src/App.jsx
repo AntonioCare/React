@@ -1,26 +1,14 @@
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+import Container from "./components/Container";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
-  };
-  function handleClick() {
-    console.log("Sono stato cliccato");
-  }
   return (
     <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
+      <Container title="Children Prop">
+        <input type="text" placeholder="Inserire Username" />
+        <input type="password" placeholder="Inserire Password" />
+        <input type="text" placeholder="Inserire Email" />
+      </Container>
     </>
   );
 }
