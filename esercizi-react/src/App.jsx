@@ -1,27 +1,24 @@
+import { useState } from "react";
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+
+import { LanguageContext } from "./components/LanguageContext";
+import Hello from "./components/Hello";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
-  };
-  function handleClick() {
-    console.log("Sono stato cliccato");
+  const [language, setLanguage] = useState("en");
+
+  function handleLanguage(event) {
+    setLanguage(event.target.value);
   }
+
   return (
-    <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
-    </>
+    <LanguageContext.Provider value={{ language, handleLanguage }}>
+      <select value={language} onChange={handleLanguage}>
+        <option value="it">IT</option>
+        <option value="en">EN</option>
+      </select>
+      <Hello />
+    </LanguageContext.Provider>
   );
 }
 
