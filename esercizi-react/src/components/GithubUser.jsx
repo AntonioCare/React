@@ -17,11 +17,11 @@ export default function GithubUser({ username }) {
   return (
     <div>
       {data && (
-        <h1>
-          {data.name}
-          {data.login}
-          {<img src={data.avatar_url} />}
-        </h1>
+        <>
+          <h1>{data.name}</h1>
+          <p> {data.login}</p>
+          <img src={data.avatar_url} />
+        </>
       )}
     </div>
   );
