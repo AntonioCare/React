@@ -1,27 +1,25 @@
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+import useCounter from "./components/useCounter";
+import FilteredList from "./components/FilteredList";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
-  };
-  function handleClick() {
-    console.log("Sono stato cliccato");
-  }
+  const { count, increment, decrement, reset } = useCounter(0);
+  const lista = [
+    { id: 1, name: "Antonio", age: 23 },
+    { id: 2, name: "Davide", age: 22 },
+    { id: 3, name: "Daniele", age: 15 },
+    { id: 4, name: "Martina", age: 18 },
+    { id: 5, name: "Alfredo", age: 33 },
+  ];
   return (
-    <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
-    </>
+    <div>
+      <h1>Contatore: {count}</h1>
+      <button onClick={increment}>Incrementa</button>
+      <button onClick={decrement}>Decrementa</button>
+      <button onClick={reset}>Reset</button>
+      <h2>Lista filtrata</h2>
+      <FilteredList list={lista} />
+    </div>
   );
 }
 
