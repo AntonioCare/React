@@ -1,7 +1,8 @@
 import "./App.css";
 import useCounter from "./components/useCounter";
-import useLogin from "./components/useLogin";
 import useGithubUser from "./components/useGithubUser";
+import useLogin from "./components/useLogin";
+import useCurrentLocation from "./components/useCurrentLocation";
 
 function App({ initialValue = 0 }) {
   const { counter, onIncrement, onDecrement, onReset } =
@@ -16,6 +17,8 @@ function App({ initialValue = 0 }) {
     onResetUs,
   } = useLogin("");
   console.log(user);
+  const { data, error, loading } = useGithubUser("DanieleChiesa");
+  const { location, errors, loadings, getLocation } = useCurrentLocation();
   return (
     <>
       <h1>{counter}</h1>
@@ -39,6 +42,21 @@ function App({ initialValue = 0 }) {
         <button type="submit">Invio</button>
         <button onClick={onResetUs}>Reset Ricerca</button>
       </form>
+
+      <div>
+        {loading && <h1>Loading...</h1>}
+        {error && <h1>There has been an error!</h1>}
+        {data && (
+          <>
+            <h1>
+              {data.name}
+              {data.login}
+            </h1>
+            <img src={data.avatar_url} />
+          </>
+        )}
+      </div>
+      <button onClick={getLocation}>Ottieni posizione</button>
     </>
   );
 }
