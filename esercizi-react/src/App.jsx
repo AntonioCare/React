@@ -17,7 +17,7 @@ function App({ initialValue = 0 }) {
     onResetUs,
   } = useLogin("");
   console.log(user);
-  const { data, error, loading } = useGithubUser("DanieleChiesa");
+  const { data, error, loading } = useGithubUser("AntonioCare");
   const { location, errors, loadings, getLocation } = useCurrentLocation();
   return (
     <>
@@ -56,7 +56,10 @@ function App({ initialValue = 0 }) {
           </>
         )}
       </div>
-      <button onClick={getLocation}>Ottieni posizione</button>
+      {loadings && <h1>Loading...</h1>}
+      {errors && <h1>Found Error : {errors}</h1>}
+      <button onClick={getLocation}>Ottieni posizione </button>
+      {location && <h1>Position : {location}</h1>}
     </>
   );
 }

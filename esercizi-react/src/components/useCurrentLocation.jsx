@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-function useCurrentLocation() {
+export default function useCurrentLocation() {
   const [location, setLocation] = useState(null);
   const [errors, setErrors] = useState(null);
   const [loadings, setLoadings] = useState(false);
@@ -22,11 +22,9 @@ function useCurrentLocation() {
       );
     } else {
       setLoadings(false);
-      setErrors("Geolocation non supportata dal browser");
+      setErrors("Geolocation not supported from browser");
     }
   }, []);
 
   return { location, errors, loadings, getLocation };
 }
-
-export default useCurrentLocation;
