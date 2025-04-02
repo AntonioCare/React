@@ -1,26 +1,24 @@
 import "./App.css";
-import Risultato from "./components/Risultato";
-import Saluto from "./components/saluto";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contatti from "./components/Contatti";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const nome = "Antonio";
-  const cognome = "Carè";
-  const persona = {
-    nome: "Antonio",
-    cognome: "Carè",
-    eta: 23,
-  };
-  function handleClick() {
-    console.log("Sono stato cliccato");
-  }
   return (
     <>
-      <Risultato operazione={handleClick}></Risultato>
-      {persona.eta > 18 ? (
-        <Saluto nome={persona.nome} cognome={persona.cognome}></Saluto>
-      ) : (
-        <h3>Non sei autorizzato</h3>
-      )}
+      <BrowserRouter>
+        <div>
+          <Link to="/">HomePage</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contatti">Contatti</Link>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/contatti" element={<Contatti></Contatti>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
