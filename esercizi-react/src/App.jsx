@@ -1,22 +1,25 @@
 import "./App.css";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contatti from "./components/Contatti";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import DashBoard from "./components/DashBoard";
+import Impostazioni from "./components/Impostazioni";
+import Profilo from "./components/Profilo";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <div>
-          <Link to="/">HomePage</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contatti">Contatti</Link>
+          <Link to="/dashBoard">DashBoard</Link>
         </div>
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/about" element={<About></About>}></Route>
-          <Route path="/contatti" element={<Contatti></Contatti>}></Route>
+          <Route
+            path="/redirect"
+            element={<Navigate to="/dashBoard" />}
+          ></Route>
+          <Route path="/dashBoard" element={<DashBoard />}>
+            <Route path="profilo" element={<Profilo />}></Route>
+            <Route path="impostazioni" element={<Impostazioni />}></Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
